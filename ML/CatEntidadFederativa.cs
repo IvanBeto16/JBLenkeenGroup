@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace ML
 {
-    public class Class1
+    public class CatEntidadFederativa
     {
+        public int IdEntidad { get; set; }
+        public string Estado { get; set; }
     }
 }
