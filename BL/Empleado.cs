@@ -20,26 +20,28 @@ namespace BL
                 using (DL.JBLeenkenGroupEntities context = new DL.JBLeenkenGroupEntities())
                 {
                     DL.Empleado emp = new DL.Empleado();
+                    //emp.CatEntidadFederativa = new DL.CatEntidadFederativa();
 
                     emp.IdEmpleado = empleado.IdEmpleado;
                     emp.Nombre = empleado.Nombre;
                     emp.ApellidoPaterno = empleado.ApellidoPaterno;
                     emp.ApellidoMaterno = empleado.ApellidoMaterno;
                     emp.NumeroNomina = empleado.NumeroNomina;
-                    emp.CatEntidadFederativa.IdEntidad = empleado.CatEntidadFederativa.IdEntidad;
+                    emp.IdEntidad = empleado.CatEntidadFederativa.IdEntidad;
 
                     context.Empleado.Add(emp);
                     context.SaveChanges();
                     result.Correct = true;
                 }
 
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 result.Correct = false;
                 result.ErrorMessage = ex.Message;
                 result.Exception = ex;
             }
-          return result;
+            return result;
         }
 
         public static ML.Result Update(ML.Empleado empleado)
