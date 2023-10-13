@@ -144,6 +144,7 @@ namespace BL
 
 
                             empleado1.IdEmpleado = obj.IdEmpleado;
+                            empleado1.NumeroNomina = obj.NumeroNomina;
                             empleado1.Nombre = obj.Nombre;
                             empleado1.ApellidoPaterno = obj.ApellidoPaterno;
                             empleado1.ApellidoMaterno = obj.ApellidoMaterno;
@@ -204,6 +205,7 @@ namespace BL
 
 
                         empleado1.IdEmpleado = usuariosLINQ.IdEmpleado;
+                        empleado1.NumeroNomina = usuariosLINQ.NumeroNomina;
                         empleado1.Nombre = usuariosLINQ.Nombre;
                         empleado1.ApellidoPaterno = usuariosLINQ.ApellidoPaterno;
                         empleado1.ApellidoMaterno = usuariosLINQ.ApellidoMaterno;
