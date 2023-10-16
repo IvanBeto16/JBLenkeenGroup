@@ -10,22 +10,22 @@ function GetAll() {
         type: 'GET',
         url: 'http://localhost:57440/api/Empleado/GetAll',
         success: function (result) { //200 OK 
-            $.each(result.Objects, function (empleado) {
+            $.each(result.Objects, function (i, empleado) {
                 var filas =
                     '<tr>'
                     + '<td class="text-center"> '
                     + '<a href="#" onclick="GetById(' + empleado.IdEmpleado + ')">'
-                    + '<img  style="height: 25px; width: 25px;" src="../img/edit.ico" />'
+                    + '<i class="bi bi-vector-pen">Actualizar usuario</i>'
                     + '</a> '
                     + '</td>'
                     + "<td  id='id' class='text-center'>" + empleado.Nombre + "</td>"
                     + "<td class='text-center'>" + empleado.ApellidoPaterno + "</td>"
                     + "<td class='text-center'>" + empleado.ApellidoMaterno + "</ td>"
-                    + "<td class='text-center'>" + empleado.IdEntidad + "</td>"
-                    + '<td class="text-center"> <button class="btn btn-danger" onclick="Eliminar(' + empleado.IdEmpleado + ')"><span class="glyphicon glyphicon-trash" style="color:#FFFFFF"></span></button></td>'
+                    + "<td class='text-center'>" + empleado.CatEntidadFederativa.IdEntidad + "</td>"
+                    + '<td class="text-center"> <button class="btn btn-danger" onclick="Eliminar(' + empleado.IdEmpleado + ')"><i class="fa-solid fa-trash-can"></i></button></td>'
 
                     + "</tr>";
-                $("#Empleados tbody").append(filas);
+                $("#tblEmpleados tbody").append(filas);
             });
         },
         error: function (result) {
