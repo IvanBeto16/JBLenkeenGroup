@@ -85,7 +85,7 @@ namespace BL
       
         //----------------------Metodo Borrar-------------
 
-        public static ML.Result DeleteLINQ(ML.Empleado empleado)
+        public static ML.Result DeleteLINQ(int IdEmpleado)
         {
             ML.Result result = new ML.Result();
             try
@@ -94,7 +94,7 @@ namespace BL
                 using (DL.JBLeenkenGroupEntities context = new DL.JBLeenkenGroupEntities())
                 {
                     var query = (from a in context.Empleado
-                                 where a.IdEmpleado == empleado.IdEmpleado
+                                 where a.IdEmpleado == IdEmpleado
                                  select a).First();
 
                     context.Empleado.Remove(query);
@@ -177,7 +177,7 @@ namespace BL
         }
         //----------------------Metodo select By Id-------------
 
-        public static ML.Result GetByIdLINQ(ML.Empleado empleado)
+        public static ML.Result GetByIdLINQ(int IdEmpleado)
         {
             ML.Result result = new ML.Result();
             try
@@ -187,7 +187,7 @@ namespace BL
                 {
                     var usuariosLINQ = (from objEmpleado in context.Empleado
                                         join CatEntidadFederativa in context.CatEntidadFederativa on objEmpleado.IdEntidad equals CatEntidadFederativa.IdEntidad
-                                        where objEmpleado.IdEmpleado == empleado.IdEmpleado
+                                        where objEmpleado.IdEmpleado == IdEmpleado
                                         select new
                                         {
                                             IdEmpleado = objEmpleado.IdEmpleado,
