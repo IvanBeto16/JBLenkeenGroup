@@ -24,10 +24,10 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10">
-
+            <button type="button" class="btn btn-success" onclick="showModal();">Agregar</button>
         </div>
         <div class="col-md-1" style="padding-left:100px">
-            @Html.ActionLink("Agregar", "Form", "SubCategoria", htmlAttributes: new { @class = "btn btn-success" })
+            
         </div>
     </div>
 
@@ -53,3 +53,58 @@
     </div>
 
 </div>
+
+<!--Codigo del Modal-->
+<div class="modal" tabindex="-1" id="formulario">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">Formulario de Registro / Actualizacion de Empleados</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">No. de Empleado</span>
+                    <input type="text" class="form-control" placeholder="Username" aria-label="No. Empleado" aria-describedby="basic-addon1" readonly>
+                </div>
+                <br />
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Nombre(s)</span>
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Nombre(s)" aria-describedby="basic-addon1">
+                </div>
+                <br />
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Apellido Paterno</span>
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Apellido Paterno" aria-describedby="basic-addon1">
+                </div>
+                <br />
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Apellido Materno</span>
+                    <input type="text" class="form-control" placeholder="Username" aria-label="Apellido Materno" aria-describedby="basic-addon1">
+                </div>
+                <br />
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Número de Nómina</span>
+                    <input type="text" class="form-control" placeholder="Username" aria-label="No. Nomina" aria-describedby="basic-addon1">
+                </div>
+                <br />
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function showModal() {
+        $('#formulario').modal('show');
+    }
+</script>
