@@ -33,3 +33,24 @@ function GetAll() {
         }
     });
 };
+
+function GetById(IdEmpleado) {
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:57440/GetById/api/Empleado/' + IdEmpleado,
+        success: function (result) {
+            $('#txtIdSubCategoria').val(result.Object.IdEmpleado);
+            $('#txtNombre').val(result.Object.Nombre);
+            $('#txtDescripcion').val(result.Object.ApellidoPaterno);
+            $('#txtIdCategoria').val(result.Object.ApellidoMaterno);
+            $('#txtIdCategoria').val(result.Object.CatEntidadFederativa.IdEntidad);
+            $('#ModalUpdate').modal('show');
+        },
+        error: function (result) {
+            alert('Error en la consulta.' + result.responseJSON.ErrorMessage);
+        }
+
+
+    });
+
+}
