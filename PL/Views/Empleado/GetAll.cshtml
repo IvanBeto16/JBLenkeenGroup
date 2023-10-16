@@ -40,6 +40,7 @@
                 <thead>
                     <tr>
                         <th class="text-center" scope="col">Editar</th>
+                        <th class="text-center" scope="col">Numero Nomina</th>
                         <th class="text-center" scope="col">Nombre</th>
                         <th class="text-center" scope="col">Apellido paterno</th>
                         <th class="text-center" scope="col">Apellido materno</th>
@@ -66,7 +67,7 @@
             <div class="modal-body">
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">No. de Empleado</span>
-                    <input type="text" class="form-control" placeholder="Username" aria-label="No. Empleado" aria-describedby="basic-addon1" readonly id="numeroEmpleado">
+                    <input type="text" class="form-control" placeholder="Username" aria-label="No. Empleado" aria-describedby="basic-addon1"  id="numeroEmpleado">
                 </div>
                 <br />
                 <div class="input-group mb-3">
@@ -94,7 +95,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn glyphicon glyphicon-pencil" id="btnAdd" onclick="AddEmpleado()">Agregar</button>
             </div>
         </div>
     </div>

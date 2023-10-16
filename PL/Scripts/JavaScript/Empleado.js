@@ -33,7 +33,8 @@ function GetAll() {
                     + '<i class="bi bi-vector-pen">Actualizar usuario</i>'
                     + '</a> '
                     + '</td>'
-                    + "<td  id='id' class='text-center'>" + empleado.Nombre + "</td>"
+                    + "<td class='text-center'>" + empleado.NumeroNomina + "</td>"
+                    + "<td class='text-center'>" + empleado.Nombre + "</td>"
                     + "<td class='text-center'>" + empleado.ApellidoPaterno + "</td>"
                     + "<td class='text-center'>" + empleado.ApellidoMaterno + "</ td>"
                     + "<td class='text-center'>" + empleado.CatEntidadFederativa.IdEntidad + "</td>"
@@ -52,13 +53,14 @@ function GetAll() {
 function GetById(IdEmpleado) {
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:57440/GetById/api/Empleado/' + IdEmpleado,
+        url: 'http://localhost:57440/api/Empleado/' + IdEmpleado,
         success: function (result) {
-            $('#txtIdSubCategoria').val(result.Object.IdEmpleado);
-            $('#txtNombre').val(result.Object.Nombre);
-            $('#txtDescripcion').val(result.Object.ApellidoPaterno);
-            $('#txtIdCategoria').val(result.Object.ApellidoMaterno);
-            $('#txtIdCategoria').val(result.Object.CatEntidadFederativa.IdEntidad);
+            $('#numeroEmpleado').val(result.Object.IdEmpleado);
+            $('#numeroNomina').val(result.Object.NumeroNomina);
+            $('#nombreEmpleado').val(result.Object.Nombre);
+            $('#apellidoPaterno').val(result.Object.ApellidoPaterno);
+            $('#apellidoMaterno').val(result.Object.ApellidoMaterno);
+            $('#ddlEntidadFederativa').val(result.Object.CatEntidadFederativa.IdEntidad);
             $('#ModalUpdate').modal('show');
         },
         error: function (result) {
@@ -68,4 +70,30 @@ function GetById(IdEmpleado) {
 
     });
 
+}
+function AddEmpleado() {
+    var nuevoEmpleado = {
+        Id: 0,
+        NumeroNomina: $('#numeroNomina').val(),
+        Nombre: $('#nombreEmpleado').val(),
+        ApellidoPaterno: $('#apellidoPaterno').val(),
+        ApellidoMaterno: $('#apellidoMaterno').val(),
+        CatEntidadFederativa: {
+            IdEntidad: $('#ddlEntidadFederativa').val()
+        }
+    };
+
+    $.ajax({
+        type: 'POST',
+        url: 'http://localhost:57440/api/Empleado',
+        dataType: 'json',
+        data: nuevoEmpleado,
+        success: function (result) {
+            $('#myModal').modal('show');
+            GetAll();
+        },
+        error: function (result) {
+            alert('Error al agregar empleado: ' + result.ErrorMessage);
+        }
+    });
 }
