@@ -1,9 +1,24 @@
 ﻿//Archivo de funciones para el CRUD de empleado
 $(document).ready(function () { //click
     GetAll();
-   
+    EntidadFederativaGetAll();
 });
 
+
+function EntidadFederativaGetAll() {
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:57440/api/EntidadFederativa',
+        success: function (result) {
+            $('#ddlEntidadFederativa').append('<option value = "' + 0 + '">' + 'Seleccione una opcion' + '</option>');
+            $.each(result.Objects, function (i, entidadFederativa) {
+                $("#ddlEntidadFederativa").append('<option value =" ' +
+                    + entidadFederativa.IdEntidad + '">'
+                    + entidadFederativa.Estado + '</opcion>');
+            });
+        }
+    });
+}
 
 function GetAll() {
     $.ajax({
