@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Empleados:</h2>
+            <hr />
+        </div>
+
+    </div>
+
+</div>
+<br />
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+
+        </div>
+        <div class="col-md-1" style="padding-left:100px">
+            @Html.ActionLink("Agregar", "Form", "SubCategoria", htmlAttributes: new { @class = "btn btn-success" })
+        </div>
+    </div>
+
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <table id="tblSubCategorias" class="table table-hover" border="1">
+                <thead>
+                    <tr>
+                        <th class="text-center" scope="col">Editar</th>
+                        <th class="text-center" scope="col">IdEmpleado</th>
+                        <th class="text-center" scope="col">Nombre</th>
+                        <th class="text-center" scope="col">Apellido paterno</th>
+                        <th class="text-center" scope="col">Apellido materno</th>
+                        <th class="text-center" scope="col">IdEntidad</th>
+                        <th class="text-center" scope="col">Eliminar</th>
+                    </tr>
+
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
