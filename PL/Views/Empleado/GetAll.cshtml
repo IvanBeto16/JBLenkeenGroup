@@ -103,6 +103,14 @@
 
 <script type="text/javascript">
     function showModal() {
+        
+        // Limpia un input con id "nombre"
+        document.getElementById('nombreEmpleado').value = '';
+        document.getElementById('numeroEmpleado').value = '';
+        document.getElementById('apellidoPaterno').value = '';
+        document.getElementById('apellidoMaterno').value = '';
+        document.getElementById('numeroNomina').value = '';
+
         $('#formulario').modal('show');
     }
 </script>

@@ -61,7 +61,8 @@ function GetById(IdEmpleado) {
             $('#apellidoPaterno').val(result.Object.ApellidoPaterno);
             $('#apellidoMaterno').val(result.Object.ApellidoMaterno);
             $('#ddlEntidadFederativa').val(result.Object.CatEntidadFederativa.IdEntidad);
-            $('#ModalUpdate').modal('show');
+            $('#ddlEntidadFederativa').val(result.Object.CatEntidadFederativa.Estado);
+            $('#formulario').modal('show');
         },
         error: function (result) {
             alert('Error en la consulta.' + result.responseJSON.ErrorMessage);
