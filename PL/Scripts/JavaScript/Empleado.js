@@ -97,3 +97,30 @@ function AddEmpleado() {
         }
     });
 }
+
+function UpdateEmpleado() {
+    var empleado = {
+        IdEmpleado: $('#numeroEmpleado').val(),
+        Nombre: $('#nombreEmpleado').val(),
+        ApellidoPaterno: $('#apellidoPaterno').val(),
+        ApellidoMaterno: $('#apellidoMaterno').val(),
+        NumeroNomina: $('#numeroNomina').val(),
+        CatEntidadFederativa: {
+            IdEntidad: $('#ddlEntidadFederativa').val()
+        }
+    }
+
+    $.ajax({
+        type: 'PUT',
+        url: 'http://localhost:57440/api/Empleado/' + IdEmpleado,
+        datatype: 'JSON',
+        data: empleado,
+        success: function (result) {
+            $('#modal').modal('show');
+            GetAll();
+        },
+        error: function (result) {
+            alert('Error al actualizar ' + result.responseJSON.ErrorMessage);
+        }
+    });
+}
