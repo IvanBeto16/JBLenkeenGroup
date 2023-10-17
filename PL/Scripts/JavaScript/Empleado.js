@@ -114,11 +114,12 @@ function UpdateEmpleado() {
 
     $.ajax({
         type: 'PUT',
-        url: 'http://localhost:57440/api/Empleado/' + IdEmpleado,
+        url: 'http://localhost:57440/api/Empleado/' + empleado.IdEmpleado,
         datatype: 'JSON',
         data: empleado,
         success: function (result) {
-            $('#modal').modal('show');
+            alert('Empleado actualizado correctamente');
+            $('#formulario').modal('hide');
             GetAll();
         },
         error: function (result) {
@@ -126,6 +127,8 @@ function UpdateEmpleado() {
         }
     });
 }
+
+
 function Eliminar(IdEmpleado) {
 
     if (confirm("¿Estas seguro de eliminar el empleado seleccionado?")) {
@@ -143,4 +146,19 @@ function Eliminar(IdEmpleado) {
         });
 
     };
+};
+
+function Cambios() {
+    var bandera = $('#numeroEmpleado').val();
+    if (bandera == 0) {
+        AddEmpleado();
+    } else {
+        UpdateEmpleado();
+    }
+    document.getElementById('nombreEmpleado').value = '';
+    document.getElementById('numeroEmpleado').value = '';
+    document.getElementById('apellidoPaterno').value = '';
+    document.getElementById('apellidoMaterno').value = '';
+    document.getElementById('numeroNomina').value = '';
+    $('#formulario').modal('hide');
 };
