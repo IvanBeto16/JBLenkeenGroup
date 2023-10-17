@@ -195,7 +195,8 @@ namespace BL
                                             Nombre = objEmpleado.Nombre,
                                             ApellidoPaterno = objEmpleado.ApellidoPaterno,
                                             ApellidoMaterno = objEmpleado.ApellidoMaterno,
-                                            IdEntidad = CatEntidadFederativa.IdEntidad
+                                            IdEntidad = CatEntidadFederativa.IdEntidad,
+                                            Estado = CatEntidadFederativa.Estado
                                         }).Single();
 
                     result.Objects = new List<object>();
@@ -213,6 +214,7 @@ namespace BL
                         empleado1.ApellidoMaterno = usuariosLINQ.ApellidoMaterno;
                         empleado1.CatEntidadFederativa = new ML.CatEntidadFederativa();
                         empleado1.CatEntidadFederativa.IdEntidad = usuariosLINQ.IdEntidad;
+                        empleado1.CatEntidadFederativa.Estado = usuariosLINQ.Estado;
 
                         result.Objects.Add(empleado1);
                         result.Object = empleado1;

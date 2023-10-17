@@ -12,7 +12,7 @@ function EntidadFederativaGetAll() {
         success: function (result) {
             $('#ddlEntidadFederativa').append('<option value = "' + 0 + '">' + 'Seleccione una opcion' + '</option>');
             $.each(result.Objects, function (i, entidadFederativa) {
-                $("#ddlEntidadFederativa").append('<option value =" ' +
+                $("#ddlEntidadFederativa").append('<option value ="' +
                     + entidadFederativa.IdEntidad + '">'
                     + entidadFederativa.Estado + '</opcion>');
             });
@@ -61,7 +61,6 @@ function GetById(IdEmpleado) {
             $('#apellidoPaterno').val(result.Object.ApellidoPaterno);
             $('#apellidoMaterno').val(result.Object.ApellidoMaterno);
             $('#ddlEntidadFederativa').val(result.Object.CatEntidadFederativa.IdEntidad);
-            $('#ddlEntidadFederativa').val(result.Object.CatEntidadFederativa.Estado);
             $('#formulario').modal('show');
         },
         error: function (result) {
