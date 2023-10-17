@@ -89,8 +89,10 @@ function AddEmpleado() {
         dataType: 'json',
         data: nuevoEmpleado,
         success: function (result) {
-            $('#myModal').modal('show');
+            window.alert("Empleado agregado");
+            $('#formulario').modal('hide');
             GetAll();
+
         },
         error: function (result) {
             alert('Error al agregar empleado: ' + result.ErrorMessage);
@@ -124,3 +126,21 @@ function UpdateEmpleado() {
         }
     });
 }
+function Eliminar(IdEmpleado) {
+
+    if (confirm("¿Estas seguro de eliminar el empleado seleccionado?")) {
+        $.ajax({
+            type: 'DELETE',
+            url: 'http://localhost:57440/api/Empleado/' + IdEmpleado,
+            success: function (result) {
+                window.alert("Empleado eliminado correctamente");
+                $('#formulario').modal();
+                GetAll();
+            },
+            error: function (result) {
+                alert('Error en la consulta.' + result.responseJSON.ErrorMessage);
+            }
+        });
+
+    };
+};
